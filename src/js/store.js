@@ -84,7 +84,6 @@
 	    var newId = ""; 
 
 		newId = todos.length + 1;
-		console.log(newId);
 
 		// If an ID was actually given, find the item and update each property
 		if (id) {

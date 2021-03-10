@@ -6,7 +6,3 @@ import './js/view.js';
 import './js/controller.js';
 import './js/app.js';
 import './styles/main.scss';
-
-// tous les fichiers JS appelés ici
-
-console.log(bro('Dude'));
