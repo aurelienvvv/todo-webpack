@@ -152,7 +152,7 @@
 	 * By giving it an ID it'll find the DOM element matching that ID,
 	 * remove it from the DOM and also remove it from storage.
 	 *
-	 * @param {number} id The ID of the item to remove from the DOM and
+	 * @param {string} id The ID of the item to remove from the DOM and
 	 * storage
 	 */
 	Controller.prototype.removeItem = function (id) {

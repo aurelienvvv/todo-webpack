@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 /*jshint eqeqeq:false */
 (function (window) {
 	'use strict';
@@ -72,7 +74,7 @@
 	 *
 	 * @param {object} updateData The data to save back into the DB
 	 * @param {function} callback The callback to fire after saving
-	 * @param {number} id An optional param to enter an ID of an item to update
+	 * @param {string} id An optional param to enter an ID of an item to update
 	 */
 	Store.prototype.save = function (updateData, callback, id) {
 		var data = JSON.parse(localStorage[this._dbName]);
@@ -80,10 +82,8 @@
 
 		callback = callback || function () {};
 
-		// Generate an ID
-	    var newId = ""; 
-
-		newId = todos.length + 1;
+		// Generate a uniq ID with uuid
+		var newId = uuidv4();
 
 		// If an ID was actually given, find the item and update each property
 		if (id) {
@@ -100,9 +100,9 @@
 			callback.call(this, todos);
 		} else {
 
-    		// Assign an ID
-			updateData.id = parseInt(newId);
-    
+			// Assign an ID
+			updateData.id = newId;
+
 
 			todos.push(updateData);
 			localStorage[this._dbName] = JSON.stringify(data);
